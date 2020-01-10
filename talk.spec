@@ -1,7 +1,7 @@
 Summary: Talk client for one-on-one Internet chatting
 Name: talk
 Version: 0.17
-Release: 34%{?dist}
+Release: 36%{?dist}
 License: BSD
 Group: Applications/Internet
 # URL: There's no upstream URL at the moment, here's the latest one.
@@ -21,6 +21,8 @@ Patch2: netkit-ntalk-0.17-sockopt.patch
 Patch3: netkit-ntalk-0.17-i18n.patch
 # Patch4: Fixes spurious 0x9a ("^Z") on window resize.
 Patch4: netkit-ntalk-0.17-resize.patch
+# Patch5: Adds support for user names with dot character
+Patch5: netkit-ntalk-0.17-person.patch
 BuildRequires: ncurses-devel
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -53,6 +55,7 @@ terminal to the terminal of another user.
 %patch2 -p1 -b .sockopt
 %patch3 -p1 -b .i18n
 %patch4 -p1 -b .resize
+%patch5 -p1 -b .person
 
 %build
 ./configure --with-c-compiler=cc
@@ -97,6 +100,14 @@ rm -rf ${RPM_BUILD_ROOT}
 %config(noreplace) /etc/xinetd.d/*
 
 %changelog
+* Mon Aug 05 2013 Vitezslav Crhonek <vcrhonek@redhat.com> - 0.17-36
+- Fix wrong description of talk parameter in man page
+  Related: #691355
+
+* Tue Jun 18 2013 Vitezslav Crhonek <vcrhonek@redhat.com> - 0.17-35
+- Add support for user names with dot character
+  Resolves: #691355
+
 * Tue Mar  2 2010 Vitezslav Crhonek <vcrhonek@redhat.com> - 0.17-34
 - Add dist tag, fix buildroot, defattr, obsoletes, provides and summary,
   comment patches and sources
