@@ -83,11 +83,11 @@ diff -up netkit-ntalk-0.17/talk/talk.1.person netkit-ntalk-0.17/talk/talk.1
 -.Ql user@host .
 +.Ql user@host
 +( or 
-+.Ql user.host
++.Ql host.user
 +or
-+.Ql user!host
++.Ql host!user
 +or
-+.Ql user:host
++.Ql host:user
 +).
 +.It Ar -x
 +If you wish to talk to a user who has dot character in username, the

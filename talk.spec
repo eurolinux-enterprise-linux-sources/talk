@@ -1,7 +1,7 @@
 Summary: Talk client for one-on-one Internet chatting
 Name: talk
 Version: 0.17
-Release: 43%{?dist}
+Release: 46%{?dist}
 License: BSD
 Group: Applications/Internet
 # URL: There's no upstream URL at the moment, here's the latest one.
@@ -108,6 +108,16 @@ install -p -m 644 %{SOURCE2} $RPM_BUILD_ROOT%{_unitdir}/ntalk.service
 %systemd_postun_with_restart ntalk.socket
 
 %changelog
+* Mon Feb 10 2014 Vitezslav Crhonek <vcrhonek@redhat.com> - 0.17-46
+- Fix wrong description of talk parameter in man page
+  Resolves: #993017
+
+* Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 0.17-45
+- Mass rebuild 2014-01-24
+
+* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 0.17-44
+- Mass rebuild 2013-12-27
+
 * Thu Sep 19 2013 Vitezslav Crhonek <vcrhonek@redhat.com> - 0.17-43
 - BuildRequire systemd
 - Fix missing full relro
